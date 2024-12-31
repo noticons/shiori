@@ -1,12 +1,13 @@
 # Docker compose for development purposes only.
 # Edit it to fit your current development needs.
-version: "3"
 services:
   shiori:
-    image: ghcr.io/go-shiori/shiori
+    build:
+      context: .
+      dockerfile: Dockerfile.compose
     container_name: shiori
     ports:
-      - "8080:8080" #set port number if it needs to be different
+      - "8080:8080"
     volumes:
       - "./dev-data:/srv/shiori"
       - ".:/src/shiori"
